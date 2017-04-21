@@ -81,6 +81,7 @@ Docs
 ----
 
 API `documentation`_ is available on pythonhosted.org/
+
 .. _documentation: http://pythonhosted.org/CatsAss/
 
 
