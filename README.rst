@@ -80,7 +80,7 @@ you through the process.
 Docs
 ----
 
-API documentation_ is available on pythonhosted.org/
+API `documentation`_ is available on pythonhosted.org/
 .. _documentation: http://pythonhosted.org/CatsAss/
 
 
