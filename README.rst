@@ -77,6 +77,13 @@ you through the process.
 .. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
 
 
+Docs
+----
+
+API documentation_ is available on pythonhosted.org/
+.. _documentation: http://pythonhosted.org/CatsAss/
+
+
 Bugs
 ----
 
