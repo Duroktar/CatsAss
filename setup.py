@@ -44,7 +44,7 @@ setup(
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Topic :: Software Development',
-        'Topic :: Software Development :: Debugging',
+        'Topic :: Software Development :: Debuggers',
         'Topic :: Games/Entertainment :: Fortune Cookies',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',
