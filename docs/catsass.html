@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>catsass.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>catsass.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Seriously the cats ass. Seriously.</p>
+<p>CatsAss is the cats ass for replacing multiple prints in
+simple debugging situations.</p>
+<hr />
+<p><img alt="CatsAss_demo" src="../images/CatsAss_dark.png" /></p>
+<hr />
+<p><em>Requires Python 3.6</em></p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os.path</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pformat</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Duroktar&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;MIT&quot;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <h2><span id="api" href="api"> API </span></h2>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <h3><span id="the_cats_ass()" href="the_cats_ass()"> the_cats_ass() </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>This function is the_cats_ass. That's an over-statement.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">the_cats_ass</span><span class="p">():</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>This is an under-statement. See what I did there? 
+What <em>you</em> can do here is save the sys.ENVIRONMENT 
+by reducing print-ed waste. Mew.</p>
+<p>returns: probably what you want</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">return</span> <span class="n">__cat_whisperer</span><span class="p">()[</span><span class="n">Cat</span><span class="o">.</span><span class="n">ASS</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <h3><span id="comb()" href="comb()"> comb() </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Filter the results of poking the cat. Takes variable
+names as strings for the args.</p>
+<p>cat: 
+    the_cats_ass() or similar</p>
+<p>brush: 
+    the variables you wish to see (as strings)</p>
+<p>returns: hairballs</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">comb</span><span class="p">(</span><span class="n">cat</span><span class="p">,</span> <span class="o">*</span><span class="n">brush</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">return</span> <span class="n">PrettyKitty</span><span class="p">(</span><span class="n">cat</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cat</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                                 <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">brush</span><span class="p">})</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <h3><span id="avoid()" href="avoid()"> avoid() </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Omit any undesirable variables from the result.</p>
+<p>cat: 
+    the_cats_ass() or similar</p>
+<p>undesirables: 
+    variables you wish to have omitted (as strings)</p>
+<p>returns: from whence it came</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">avoid</span><span class="p">(</span><span class="n">cat</span><span class="p">,</span> <span class="o">*</span><span class="n">undesirables</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">return</span> <span class="n">PrettyKitty</span><span class="p">(</span><span class="n">cat</span><span class="o">.</span><span class="n">ctx</span><span class="p">,</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cat</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                                 <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">undesirables</span><span class="p">})</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <h3><span id="poke_the_cat()" href="poke_the_cat()"> poke_the_cat() </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <p>You really shouldn't be poking cats. But if you insist,
+it is recommended to bring catnip as it's not unusual for
+cats to attack dicks who poke them.</p>
+<p>where: 
+    I leave this as an exercise for the reader. But
+    a word of wisdom from my 1st grade teacher: never do
+    anything that you wouldn't want to be caught dead doing.
+    Sadly he went to jail not long after whispering those 
+    words in my ear.</p>
+<p>catnip: 
+    catnip can grow in the wild in many places around
+    the world. If no catnip can readily be found in yours
+    or any of your neighbors yards then just pass True as the 
+    argument.</p>
+<p>returns: possibly what you want.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">poke_the_cat</span><span class="p">(</span><span class="n">where</span><span class="p">,</span> <span class="n">catnip</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">if</span> <span class="ow">not</span> <span class="n">catnip</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">class</span> <span class="nc">BadCat</span><span class="p">(</span><span class="n">InterruptedError</span><span class="p">):</span>
+            <span class="k">pass</span>
+
+        <span class="k">if</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+            <span class="n">mew</span> <span class="o">=</span> <span class="s2">&quot;You attempt to poke the cat but it attacks. &quot;</span> \
+                  <span class="s2">&quot;Maybe if you gave it some catnip?&quot;</span>
+            <span class="k">raise</span> <span class="n">BadCat</span><span class="p">(</span><span class="n">mew</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">__cat_whisperer</span><span class="p">()[</span><span class="n">where</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <h3><span id="schrodingers_cat()" href="schrodingers_cat()"> schrodingers_cat() </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      <p>Peek in the box for a 50/50 shot of retrieving your
+desired output, while the other half of the time the
+cat is dead and the function returns nothing at all.
+If you decide not to peek, the cat -being neither
+dead nor alive- responds with random nonsense.</p>
+<p>peek: 
+    whether to peek in the box</p>
+<p>returns: depends</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">schrodingers_cat</span><span class="p">(</span><span class="n">peek</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">choice</span><span class="p">,</span> <span class="n">randint</span>
+    <span class="k">if</span> <span class="n">peek</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      <p>RIP</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>            <span class="k">return</span> <span class="s2">&quot;Nothing at all&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">poke_the_cat</span><span class="p">(</span><span class="n">Cat</span><span class="o">.</span><span class="n">LEGS</span><span class="p">,</span> <span class="n">catnip</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">garbled_cries</span> <span class="o">=</span> <span class="s2">&quot;mew meow wokka beocat ekkie&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">choice</span><span class="p">(</span><span class="n">garbled_cries</span><span class="p">)</span>
+
+
+<span class="n">__LIBDIR__</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-19'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-19'>#</a>
+      </div>
+      <h3><span id="prettykitty()" href="prettykitty()"> PrettyKitty() </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-20'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-20'>#</a>
+      </div>
+      <p>I can has repr?</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">PrettyKitty</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-21'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-21'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-22'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-22'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">cat</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">logo</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+                 <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;|/&#39;</span><span class="p">,</span> <span class="n">logo_offset</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span>
+                 <span class="n">formatter</span><span class="o">=</span><span class="n">pformat</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-23'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-23'>#</a>
+      </div>
+      <p>The callers name usually.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">ctx</span> <span class="o">=</span> <span class="n">ctx</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-24'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-24'>#</a>
+      </div>
+      <p>The local variables data.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">values</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-25'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-25'>#</a>
+      </div>
+      <p>The line where the talk bubble should
+start must end with the marker, or the
+data will be printed just below the logo,
+which may not be what you want.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="n">marker</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-26'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-26'>#</a>
+      </div>
+      <p>Other formatters can be swapped in, JSON
+-for example- should work, or yaml.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">formatter</span> <span class="o">=</span> <span class="n">formatter</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-27'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-27'>#</a>
+      </div>
+      <p>Allows the logo to be offset to either side;
+negative numbers move it left and positive
+numbers move it right.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="bp">self</span><span class="o">.</span><span class="n">logo_offset</span> <span class="o">=</span> <span class="n">logo_offset</span>
+
+        <span class="k">if</span> <span class="n">cat</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">cat</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__LIBDIR__</span><span class="p">,</span> <span class="s1">&#39;octocat&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cat</span> <span class="o">=</span> <span class="n">cat</span>
+
+        <span class="k">if</span> <span class="n">logo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">logo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__LIBDIR__</span><span class="p">,</span> <span class="s1">&#39;logo&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logo</span> <span class="o">=</span> <span class="n">logo</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-28'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-28'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="nf">haz_format</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">get_terminal_size</span>
+
+        <span class="n">cat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cat</span>
+        <span class="n">logo</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logo</span>
+        <span class="n">marker</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">marker</span>
+        <span class="n">logo_offset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">logo_offset</span>
+
+        <span class="n">pivot</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">)</span>
+        <span class="n">term_width</span><span class="p">,</span> <span class="n">term_height</span> <span class="o">=</span> <span class="n">get_terminal_size</span><span class="p">((</span><span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatter</span><span class="p">({</span><span class="bp">self</span><span class="o">.</span><span class="n">ctx</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">},</span> <span class="n">width</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="o">-</span><span class="n">pivot</span><span class="p">))</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+        <span class="n">logo_height</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">logo</span><span class="p">)</span>
+        <span class="n">speak_line</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span> <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">marker</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">speak_line</span><span class="p">:</span>
+            <span class="n">speak_line</span> <span class="o">=</span> <span class="p">[</span><span class="n">logo_height</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">speak_line</span> <span class="o">=</span> <span class="n">speak_line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">logo_height</span> <span class="o">&gt;</span> <span class="n">speak_line</span><span class="p">:</span>
+            <span class="n">logo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;CatsAss&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-29'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-29'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">def</span> <span class="nf">rfill_lines</span><span class="p">(</span><span class="n">filler</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">height</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">filler</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">height</span><span class="p">):</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">i</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">line</span> <span class="o">=</span> <span class="n">cat</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                    <span class="n">cat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{&#39; &#39; * pivot}&quot;</span>
+                               <span class="n">f</span><span class="s2">&quot;{filler[i]}&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">l_break</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+                    <span class="n">new_l</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;{line.rstrip(l_break)}&quot;</span>
+                             <span class="n">f</span><span class="s2">&quot;{&#39; &#39; * ((pivot - len(line)) + offset)}&quot;</span>
+                             <span class="n">f</span><span class="s2">&quot;{filler[i]}&quot;</span><span class="p">)</span>
+                    <span class="n">cat</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_l</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-30'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-30'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">def</span> <span class="nf">trim</span><span class="p">(</span><span class="n">l</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">term_width</span> <span class="o">-</span> <span class="n">pivot</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">l</span><span class="p">[:</span><span class="n">term_width</span> <span class="o">-</span> <span class="n">pivot</span> <span class="o">-</span> <span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;[...]&quot;</span>
+            <span class="k">return</span> <span class="n">l</span>
+        <span class="n">trimmed_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">trim</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+        <span class="n">rfill_lines</span><span class="p">(</span><span class="n">logo</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">logo_offset</span><span class="p">)</span>
+        <span class="n">rfill_lines</span><span class="p">(</span><span class="n">trimmed_data</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">speak_line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">l</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="p">[</span><span class="n">line</span><span class="p">[:</span><span class="n">term_width</span><span class="p">]</span>
+                          <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">]])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-31'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-31'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">haz_format</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-32'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-32'>#</a>
+      </div>
+      <h3><span id="cat" href="cat"> Cat </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-33'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-33'>#</a>
+      </div>
+      <p>Different places to poke the cat. If the wrong scope is
+being printed then you probably just need to poke the cat 
+somewhere else.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-34'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-34'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">TAIL</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ASS</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">LEGS</span> <span class="o">=</span> <span class="mi">2</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-35'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-35'>#</a>
+      </div>
+      <h3><span id="__cat_whisperer()" href="__cat_whisperer()"> __cat_whisperer() </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-36'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-36'>#</a>
+      </div>
+      <p>The cat whisperer is usually very solitary and private.
+Thus any attempts at invoking the cat whisperer directly
+will be met with no resistance, because this is Python, 
+and honestly he could use the friends.</p>
+<p>returns: whisperings of cats</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">__cat_whisperer</span><span class="p">():</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-37'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-37'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="kn">from</span> <span class="nn">inspect</span> <span class="kn">import</span> <span class="n">currentframe</span>
+    <span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">currentframe</span><span class="p">()</span>
+    <span class="k">while</span> <span class="n">frame</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_back</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">c_frame</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">co_name</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_name</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">PrettyKitty</span><span class="p">(</span><span class="n">co_name</span><span class="p">,</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">c_frame</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                                      <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">([</span><span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">),</span> <span class="nb">callable</span><span class="p">(</span><span class="n">v</span><span class="p">)])}))</span>
+    <span class="k">return</span> <span class="n">frames</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
