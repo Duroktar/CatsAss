@@ -41,7 +41,7 @@ setup(
     author_email='duroktar@gmail.com',
     license="MIT",
     classifiers=[
-        'Development Status :: 1 - Release',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Topic :: Software Development',
         'Topic :: Software Development :: Debugging',
