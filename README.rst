@@ -6,8 +6,7 @@ CatsAss
 
 Seriously the cats ass. Seriously.
 
-.. image:: images/CatsAss_dark.png
-
+.. image:: https://github.com/Duroktar/CatsAss/blob/master/images/CatsAss_dark.png?raw=true
 
 WTF is it?
 ==========
@@ -30,7 +29,6 @@ simple debugging situations. So..
            rv.append(a)
         return rv
 
-----
 
 **Do this.**
 
@@ -47,8 +45,9 @@ simple debugging situations. So..
            rv.append(a)
         return rv
 
+----
 
-.. image:: images/CatsAss_demo.png
+.. image:: https://github.com/Duroktar/CatsAss/blob/master/images/CatsAss_demo.png?raw=true
 
 **It's the cats ass!!**
 
@@ -75,14 +74,6 @@ you through the process.
 
 .. _pip: https://pip.pypa.io
 .. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
-
-
-Docs
-----
-
-API `documentation`_ is available on pythonhosted.org/
-
-.. _documentation: http://pythonhosted.org/CatsAss/
 
 
 Bugs

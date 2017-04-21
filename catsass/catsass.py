@@ -6,7 +6,7 @@ simple debugging situations.
 
 ----
 
-![CatsAss_demo](../images/CatsAss_dark.png)
+![CatsAss_demo](https://github.com/Duroktar/CatsAss/blob/master/images/CatsAss_dark.png?raw=true)
 
 ----
 
