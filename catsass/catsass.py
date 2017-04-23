@@ -149,7 +149,7 @@ class PrettyKitty:
     """I can has repr?"""
 
     def __init__(self, ctx, values, cat=None, logo=None,
-                 marker='|/', logo_offset=-6,
+                 marker='|/', logo_offset=-6, template=None,
                  formatter=pformat):
 
         # The callers name usually.
@@ -173,6 +173,13 @@ class PrettyKitty:
         # numbers move it right.
         self.logo_offset = logo_offset
 
+        if template is None:
+            template = {
+                "Name": self.ctx,
+                "Vars": self.values}
+            # template = {self.ctx: self.values}
+        self.template = template
+
         if cat is None:
             cat = open(os.path.join(__LIBDIR__, 'octocat'), 'r').readlines()
         self.cat = cat
@@ -191,7 +198,7 @@ class PrettyKitty:
 
         pivot = max(len(i) for i in cat)
         term_width, term_height = get_terminal_size((80, 30))
-        data = self.formatter({self.ctx: self.values}, width=(80-pivot)).splitlines()
+        data = self.formatter(self.template, width=(80-pivot)).splitlines()
 
         logo_height = len(logo)
         speak_line = [i - 1 for i, v in enumerate(cat) if v.strip().endswith(marker)]
@@ -225,13 +232,13 @@ class PrettyKitty:
         trimmed_data = [trim(line) for line in data]
 
         rfill_lines(logo, offset=logo_offset)
-        rfill_lines(trimmed_data, start=speak_line)
+        rfill_lines(trimmed_data, start=speak_line, offset=-3)
         return "\n".join([l.rstrip('\n')
                           for l in [line[:term_width]
                           for line in cat]])
 
     def __repr__(self):
-        return self.haz_format()
+        return self.haz_format() + "\n\n"
 
 
 # === Cat ===
@@ -274,4 +281,3 @@ def __cat_whisperer():
                 PrettyKitty(co_name, {k: v for k, v in c_frame.items()
                                       if not any([k.startswith('_'), callable(v)])}))
     return frames
-
