@@ -10,14 +10,16 @@ def CatsAss():
         "Seriously."
     ]
     print(the_cats_ass())
+    # print(calico_kitty())
 
 
-def test_all():
-    print(schrodingers_cat())
-    print(schrodingers_cat(peek=True))
-    print(poke_the_cat(Cat.ASS, catnip=True))
-    print(comb(the_cats_ass(), 'its'))
-    print(avoid(the_cats_ass(), 'its'))
+# def test_all():
+#     print(calico_kitty())
+    # print(schrodingers_cat())
+    # print(schrodingers_cat(peek=True))
+    # print(poke_the_cat(Cat.ASS, catnip=True))
+    # print(comb(the_cats_ass(), 'its'))
+    # print(avoid(the_cats_ass(), 'its'))
 
 
 if __name__ == '__main__':

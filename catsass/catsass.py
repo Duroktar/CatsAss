@@ -14,7 +14,9 @@ simple debugging situations.
 
 """
 import os.path
-from pprint import pformat
+from collections import namedtuple
+from itertools import groupby
+from pprint import pformat, pprint
 
 __author__ = "Duroktar"
 __license__ = "MIT"
@@ -140,17 +142,23 @@ def schrodingers_cat(peek=False):
         return choice(garbled_cries)
 
 
+def calico_kitty():
+    return __cat_whisperer(colors=True)
+
+
 __LIBDIR__ = os.path.abspath(os.path.dirname(__file__))
 
-
 # === PrettyKitty() ===
+
 
 class PrettyKitty:
     """I can has repr?"""
 
     def __init__(self, ctx, values, cat=None, logo=None,
-                 marker='|/', logo_offset=-6, template=None,
-                 formatter=pformat):
+                 marker='|/', logo_offset=-7, template=None,
+                 formatter=pformat, logo_lexer=None, data_lexer=None,
+                 cat_lexer=None, colors=True, term_bg="dark", title=None,
+                 title_start=(6, 64)):
 
         # The callers name usually.
         self.ctx = ctx
@@ -173,69 +181,139 @@ class PrettyKitty:
         # numbers move it right.
         self.logo_offset = logo_offset
 
-        if template is None:
-            template = {
-                "Name": self.ctx,
-                "Vars": self.values}
-            # template = {self.ctx: self.values}
-        self.template = template
+        self.term_bg = term_bg
 
+        # TODO
+        if title is None:
+            title = "Meowed with love by Duroktar, 2017"
+        self.title = title
+        self.title_location = title_start
+        self.colors = colors
+        # Colors ~*%~
+        self.lexers = {
+            "cat": cat_lexer,
+            "logo": logo_lexer,
+            "data": data_lexer,
+        }
+        # TODO Gotta be public
+        Template = namedtuple("Template", "view offset")
+        if template is None:
+            template = Template({
+                "Name": self.ctx,
+                "Vars": self.values}, 0)
+            template = Template({self.ctx: self.values}, -1)
+        self.template = template
         if cat is None:
             cat = open(os.path.join(__LIBDIR__, 'octocat'), 'r').readlines()
         self.cat = cat
-
         if logo is None:
             logo = open(os.path.join(__LIBDIR__, 'logo'), 'r').readlines()
         self.logo = logo
 
+    def haz_colorz(self, cat, logo, data, title):
+        from colorz import kitty_colorz
+        try:
+            color_stuffs = kitty_colorz()
+        except ImportError:
+            return cat, logo, data.splitlines(), title
+
+        def color_lines(lines, color_mapping, words=False):
+            if any([len(k) > 1 for k in color_mapping.keys()]):
+                words = True
+                search_lines = [groupby(lines.split())]
+            else:
+                search_lines = [groupby(line) for line in lines]
+
+            rv = []
+            for groups in search_lines:
+                line = []
+                for item, group in groups:
+                    color = color_mapping.get(item)
+                    if color is None:
+                        line.append("".join(group))
+                    else:
+                        line.append(color("".join(group)).color_str)
+                if words:
+                    rv.append(" ".join(line))
+                else:
+                    rv.append("".join(line))
+            return rv
+
+        highlight = color_stuffs['highlight']
+
+        # cat_colorz = color_stuffs['calico_colorz']
+        cat_colorz = color_stuffs['tuxedo_colorz']
+
+        logo_colorz = color_stuffs['logo_colorz']
+        title_colors = color_stuffs['title_colorz']
+        python3_lexer = color_stuffs['Python3Lexer']
+        terminal_formatter = color_stuffs['TerminalFormatter']
+
+        title = color_lines(title, title_colors)
+        cat = color_lines(cat, cat_colorz)
+        logo = color_lines(logo, logo_colorz)
+        data = highlight(data, python3_lexer(stripnl=False), terminal_formatter(bg=self.term_bg))
+        return cat, logo, data.splitlines(), title
+
     def haz_format(self):
         from shutil import get_terminal_size
 
-        cat = self.cat
-        logo = self.logo
-        marker = self.marker
-        logo_offset = self.logo_offset
+        def yield_pads(lines, l):
+            for line in lines:
+                line = line.rstrip("\n").rstrip()
+                length = len(line)
 
-        pivot = max(len(i) for i in cat)
+                if length < l:
+                    yield line + " " * (l - length - 1)
+                else:
+                    yield line
+
         term_width, term_height = get_terminal_size((80, 30))
-        data = self.formatter(self.template, width=(80-pivot)).splitlines()
-
+        cat = list(yield_pads(self.cat, term_width))
+        pivot = max((len(l.encode('unicode-escape')) for l in self.cat))
+        logo_offset = self.logo_offset
+        logo_width = max((len(str(l)) for l in self.logo))
+        logo = list(yield_pads(self.logo, logo_width - 1))
         logo_height = len(logo)
-        speak_line = [i - 1 for i, v in enumerate(cat) if v.strip().endswith(marker)]
-        if not speak_line:
-            speak_line = [logo_height + 1]
-        speak_line = speak_line[0]
+        marker = self.marker
+        data_start_line = [i - 1 for i, v in enumerate(cat) if v.strip().endswith(marker)]
+        if not data_start_line:
+            data_start_line = [logo_height + 1]
+        data_start_line = data_start_line[0]
+        if logo_height > data_start_line:
+            data_start_line = logo_height + 1
 
-        if logo_height > speak_line:
-            logo = ["CatsAss".center(20)]
+        # def trim(l):
+        #     if len(l) > term_width - pivot:
+        #         return l[:term_width - pivot - 5] + "[...]"
+        #     return l
 
-        def rfill_lines(filler, start=0, offset=0):
+        def rfill_lines(filler, start=0, offset=0, column=None):
             height = len(filler)
             for i in range(height):
                 index = start + i
                 try:
                     line = cat[index]
                 except IndexError:
-                    cat.append(f"{' ' * pivot}"
-                               f"{filler[i]}")
+                    cat.append(f"{' ' * pivot}{filler[i]}")
                 else:
-                    l_break = '\n'
-                    new_l = (f"{line.rstrip(l_break)}"
-                             f"{' ' * ((pivot - len(line)) + offset)}"
-                             f"{filler[i]}")
-                    cat[index] = new_l
+                    if column is not None:
+                        new_l = f"{line[:column]}{filler.pop()}"
+                    else:
+                        new_l = f"{line[:-(term_width - pivot - offset)]}{filler[i]}"
 
-        def trim(l):
-            if len(l) > term_width - pivot:
-                return l[:term_width - pivot - 5] + "[...]"
-            return l
-        trimmed_data = [trim(line) for line in data]
+                    # new_l = f"{line[:-(term_width - pivot - offset)]}{filler[i]}"
+                    cat[index] = new_l
+        title, (title_start_line, title_start_column) = self.title, self.title_location
+        data = self.formatter(self.template.view, width=(80-pivot))
+        if self.colors:
+            cat, logo, data, title = self.haz_colorz(cat, logo, data, self.title)
 
         rfill_lines(logo, offset=logo_offset)
-        rfill_lines(trimmed_data, start=speak_line, offset=-3)
-        return "\n".join([l.rstrip('\n')
-                          for l in [line[:term_width]
-                          for line in cat]])
+        rfill_lines(title, start=title_start_line, column=title_start_column)
+        rfill_lines(data, start=data_start_line, offset=self.template.offset)
+
+        return "\n".join((l.rstrip() for l in cat))
 
     def __repr__(self):
         return self.haz_format() + "\n\n"
@@ -256,7 +334,7 @@ class Cat:
 
 # === __cat_whisperer() ===
 
-def __cat_whisperer():
+def __cat_whisperer(**kwargs):
     """
     The cat whisperer is usually very solitary and private.
     Thus any attempts at invoking the cat whisperer directly
@@ -279,5 +357,5 @@ def __cat_whisperer():
         else:
             frames.append(
                 PrettyKitty(co_name, {k: v for k, v in c_frame.items()
-                                      if not any([k.startswith('_'), callable(v)])}))
+                                      if not any([k.startswith('_'), callable(v)])}, **kwargs))
     return frames
