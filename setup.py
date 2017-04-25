@@ -30,7 +30,7 @@ if sys.argv[-1] == 'build':
 setup(
     name='CatsAss',
     version=__version__,
-    packages=find_packages(exclude=['docs', 'images']),
+    packages=find_packages(exclude=['docs', 'screens']),
     package_data={
         'catsass': ['logo', 'octocat']
     },

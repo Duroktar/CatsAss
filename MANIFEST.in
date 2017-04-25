@@ -1,2 +1,4 @@
+include share/*
+
 include LICENSE.md
 include README.rst
