@@ -60,6 +60,10 @@ KittyPrinter classes!
 Colorz!
 -------
 
+*Requires: pygments and crayons packages*
+
+    pip install --user pygments crayons
+
 Just swap out the_cats_ass() with the color cat of your choice!
 
 .. code-block:: python

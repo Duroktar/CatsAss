@@ -284,7 +284,7 @@ class PrettyKitty:
 
     def haz_colorz(self, cat, logo, title, data):
         try:
-            from colorz import kitty_colorz
+            from catsass.colorz import kitty_colorz
         except ImportError:
             return cat, logo, title, data
 
