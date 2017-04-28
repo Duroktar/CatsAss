@@ -1,5 +1,4 @@
-from catsass import (the_cats_ass, poke_the_cat, comb,
-                     avoid, schrodingers_cat, Cat)
+from catsass import (the_cats_ass, calico_kitty, tuxedo_cat)
 
 
 def CatsAss():
@@ -10,19 +9,31 @@ def CatsAss():
         "Seriously."
     ]
     print(the_cats_ass())
-    # print(calico_kitty())
 
 
-# def test_all():
-#     print(calico_kitty())
-    # print(schrodingers_cat())
-    # print(schrodingers_cat(peek=True))
-    # print(poke_the_cat(Cat.ASS, catnip=True))
-    # print(comb(the_cats_ass(), 'its'))
-    # print(avoid(the_cats_ass(), 'its'))
+def CalicoCat():
+    its = [
+        "The       ",
+        " cats     ",
+        "   ass..  ",
+        "Seriously."
+    ]
+    print(calico_kitty())
+
+
+def TuxedoCat():
+    its = [
+        "The       ",
+        " cats     ",
+        "   ass..  ",
+        "Seriously."
+    ]
+    print(tuxedo_cat())
 
 
 if __name__ == '__main__':
     # This is really just for visual testing..
 
     CatsAss()
+    TuxedoCat()
+    CalicoCat()

@@ -143,7 +143,13 @@ def schrodingers_cat(peek=False):
 
 
 def calico_kitty():
-    return __cat_whisperer(colors=True)
+    """I can haz colorz?"""
+    return __cat_whisperer(colors=True, coat='calico_colorz', logo_colorz='logo_colorz')[Cat.ASS]
+
+
+def tuxedo_cat():
+    """Finer than a pheasant"""
+    return __cat_whisperer(colors=True, coat='tuxedo_colorz', logo_colorz='dark_logo_colorz')[Cat.ASS]
 
 
 __LIBDIR__ = os.path.abspath(os.path.dirname(__file__))
@@ -155,10 +161,10 @@ class PrettyKitty:
     """I can has repr?"""
 
     def __init__(self, ctx, values, cat=None, logo=None,
-                 marker='|/', logo_offset=-7, template=None,
-                 formatter=pformat, logo_lexer=None, data_lexer=None,
-                 cat_lexer=None, colors=True, term_bg="dark", title=None,
-                 title_start=(6, 64)):
+                 marker='|/', logo_offset=6, template=None,
+                 formatter=pformat, colors=False, coat=None,
+                 logo_colorz=None, term_bg="dark", title=None,
+                 title_start=(6, 45)):
 
         # The callers name usually.
         self.ctx = ctx
@@ -177,50 +183,117 @@ class PrettyKitty:
         self.formatter = formatter
 
         # Allows the logo to be offset to either side;
-        # negative numbers move it left and positive
+        # positive numbers move it left and negative
         # numbers move it right.
         self.logo_offset = logo_offset
 
         self.term_bg = term_bg
 
-        # TODO
         if title is None:
             title = "Meowed with love by Duroktar, 2017"
         self.title = title
         self.title_location = title_start
-        self.colors = colors
+
         # Colors ~*%~
-        self.lexers = {
-            "cat": cat_lexer,
-            "logo": logo_lexer,
-            "data": data_lexer,
-        }
-        # TODO Gotta be public
+        self.colors = colors
+        self.coat = coat
+        self.logo_colorz = logo_colorz
+
+        # TODO Should be public
         Template = namedtuple("Template", "view offset")
         if template is None:
+
+            # Option 1
             template = Template({
                 "Name": self.ctx,
-                "Vars": self.values}, 0)
-            template = Template({self.ctx: self.values}, -1)
+                "Vars": self.values}, 1)
+
+            # Option 2
+            template = Template({self.ctx: self.values}, 1)
         self.template = template
+
         if cat is None:
             cat = open(os.path.join(__LIBDIR__, 'octocat'), 'r').readlines()
         self.cat = cat
+
         if logo is None:
             logo = open(os.path.join(__LIBDIR__, 'logo'), 'r').readlines()
         self.logo = logo
 
-    def haz_colorz(self, cat, logo, data, title):
-        from colorz import kitty_colorz
+    def __repr__(self):
+        return self.haz_format() + "\n\n"
+
+    def haz_format(self):
+        from shutil import get_terminal_size
+
+        def yield_pads(lines, l):
+            for line in lines:
+                line = line.rstrip("\n").rstrip()
+                length = len(line)
+
+                if length < l:
+                    yield line + " " * (l - length - 1)
+                else:
+                    yield line
+
+        def rfill_lines(filler, start=0, offset=0, column=None):
+            height = len(filler)
+            for i in range(height):
+                index = start + i
+                try:
+                    line = cat[index]
+                except IndexError:
+                    cat.append(f"{' ' * pivot}{filler[i]}")
+                else:
+                    if column is not None:
+                        new_l = f"{line[:-(term_width - column) - offset]}{filler[i]}"
+                    else:
+                        new_l = f"{line[:-(term_width - pivot) - offset]}{filler[i]}"
+
+                    cat[index] = new_l
+
+        term_width, term_height = get_terminal_size((80, 30))
+        cat = list(yield_pads(self.cat, term_width))
+        pivot = max((len(l.encode('unicode-escape')) for l in self.cat))
+
+        logo_offset = self.logo_offset
+        logo_width = max((len(str(l)) for l in self.logo))
+        logo = list(yield_pads(self.logo, logo_width - 1))
+        logo_height = len(logo)
+
+        marker = self.marker
+        data_start_line = [i - 1 for i, v in enumerate(cat) if v.strip().endswith(marker)]
+        if not data_start_line:
+            data_start_line = [logo_height + 1]
+        data_start_line = data_start_line[0]
+
+        if logo_height > data_start_line:
+            data_start_line = logo_height + 1
+
+        title = [self.title]
+        title_start_line, title_start_column = self.title_location
+        data = self.formatter(self.template.view, width=(term_width - pivot))
+
+        if self.colors:
+            cat, logo, title, data = self.haz_colorz(cat, logo, title, data)
+
+        rfill_lines(logo, offset=logo_offset)
+        rfill_lines(title, start=title_start_line, column=title_start_column)
+        rfill_lines(data.splitlines(), start=data_start_line, offset=self.template.offset)
+        return "\n".join((l.rstrip() for l in cat))
+
+    def haz_colorz(self, cat, logo, title, data):
         try:
-            color_stuffs = kitty_colorz()
+            from colorz import kitty_colorz
         except ImportError:
-            return cat, logo, data.splitlines(), title
+            return cat, logo, title, data
+
+        color_stuffs = kitty_colorz()
 
         def color_lines(lines, color_mapping, words=False):
             if any([len(k) > 1 for k in color_mapping.keys()]):
                 words = True
-                search_lines = [groupby(lines.split())]
+                search_lines = [groupby(line.split()) for line in lines]
             else:
                 search_lines = [groupby(line) for line in lines]
 
@@ -241,82 +314,21 @@ class PrettyKitty:
 
         highlight = color_stuffs['highlight']
 
-        # cat_colorz = color_stuffs['calico_colorz']
-        cat_colorz = color_stuffs['tuxedo_colorz']
+        # Customz
+        cat_colorz = color_stuffs.get(self.coat) or {}
+        logo_colorz = color_stuffs.get(self.logo_colorz) or {}
 
-        logo_colorz = color_stuffs['logo_colorz']
-        title_colors = color_stuffs['title_colorz']
-        python3_lexer = color_stuffs['Python3Lexer']
-        terminal_formatter = color_stuffs['TerminalFormatter']
+        # All this will be customizable in the next release.
+        title_colors = color_stuffs.get('title_colorz')
+        python3_lexer = color_stuffs.get('Python3Lexer')
+        terminal_formatter = color_stuffs.get('TerminalFormatter')
 
-        title = color_lines(title, title_colors)
+        # Slap-chop! Why? I dunno..
         cat = color_lines(cat, cat_colorz)
         logo = color_lines(logo, logo_colorz)
+        title = color_lines(title, title_colors)
         data = highlight(data, python3_lexer(stripnl=False), terminal_formatter(bg=self.term_bg))
-        return cat, logo, data.splitlines(), title
-
-    def haz_format(self):
-        from shutil import get_terminal_size
-
-        def yield_pads(lines, l):
-            for line in lines:
-                line = line.rstrip("\n").rstrip()
-                length = len(line)
-
-                if length < l:
-                    yield line + " " * (l - length - 1)
-                else:
-                    yield line
-
-        term_width, term_height = get_terminal_size((80, 30))
-        cat = list(yield_pads(self.cat, term_width))
-        pivot = max((len(l.encode('unicode-escape')) for l in self.cat))
-        logo_offset = self.logo_offset
-        logo_width = max((len(str(l)) for l in self.logo))
-        logo = list(yield_pads(self.logo, logo_width - 1))
-        logo_height = len(logo)
-        marker = self.marker
-        data_start_line = [i - 1 for i, v in enumerate(cat) if v.strip().endswith(marker)]
-        if not data_start_line:
-            data_start_line = [logo_height + 1]
-        data_start_line = data_start_line[0]
-        if logo_height > data_start_line:
-            data_start_line = logo_height + 1
-
-        # def trim(l):
-        #     if len(l) > term_width - pivot:
-        #         return l[:term_width - pivot - 5] + "[...]"
-        #     return l
-
-        def rfill_lines(filler, start=0, offset=0, column=None):
-            height = len(filler)
-            for i in range(height):
-                index = start + i
-                try:
-                    line = cat[index]
-                except IndexError:
-                    cat.append(f"{' ' * pivot}{filler[i]}")
-                else:
-                    if column is not None:
-                        new_l = f"{line[:column]}{filler.pop()}"
-                    else:
-                        new_l = f"{line[:-(term_width - pivot - offset)]}{filler[i]}"
-
-                    # new_l = f"{line[:-(term_width - pivot - offset)]}{filler[i]}"
-                    cat[index] = new_l
-        title, (title_start_line, title_start_column) = self.title, self.title_location
-        data = self.formatter(self.template.view, width=(80-pivot))
-        if self.colors:
-            cat, logo, data, title = self.haz_colorz(cat, logo, data, self.title)
-
-        rfill_lines(logo, offset=logo_offset)
-        rfill_lines(title, start=title_start_line, column=title_start_column)
-        rfill_lines(data, start=data_start_line, offset=self.template.offset)
-
-        return "\n".join((l.rstrip() for l in cat))
-
-    def __repr__(self):
-        return self.haz_format() + "\n\n"
+        return cat, logo, title, data
 
 
 # === Cat ===
