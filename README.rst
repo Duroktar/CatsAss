@@ -68,7 +68,7 @@ simple debugging situations. So..
 
 ----
 
-.. image:: https://github.com/Duroktar/CatsAss/blob/master/images/CatsAss_colorz.png?raw=true
+.. image:: https://github.com/Duroktar/CatsAss/blob/calico-kitty/images/CatsAss_colorz.png?raw=true
 
 Available colored cats -
 - `calico_cat`
