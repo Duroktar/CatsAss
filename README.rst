@@ -6,15 +6,20 @@ CatsAss
 
 Seriously the cats ass. Seriously.
 
-.. image:: https://github.com/Duroktar/CatsAss/blob/master/images/CatsAss_dark.png?raw=true
+*Now with Colors!*
+
+.. image:: https://github.com/Duroktar/CatsAss/blob/master/images/CatsAss_colorz.png?raw=true
 
 WTF is it?
 ==========
 
-CatsAss is the cats ass for replacing multiple prints in
-simple debugging situations. So..
+CatsAss is the cats ass for sneaking cats into your daily workflow. the_cats_ass() introspects
+the function you call it from and returns the local variables PrettyPrinted with a Cat! Not
+only is the data PrettyPrinted, but you can also add syntax highlighting or create your own custom
+KittyPrinter classes!
 
-**Instead of this..**
+
+**So instead of this kinda stuff..**
 
 .. code-block:: python
 
@@ -51,28 +56,30 @@ simple debugging situations. So..
 
 **It's the cats ass!!**
 
-**Now with colorz!**
+
+Colorz!
+-------
+
+Just swap out the_cats_ass() with the color cat of your choice!
 
 .. code-block:: python
 
-    from catsass import calico_cat
+    from catsass import tuxedo_cat
 
-    def cat_tail_shape_determiner_function(n):
-        a, b = 0, 1
-        rv = [a]
-        while a < n:
-           print( calico_cat() )  # See list below for more cats
-           a, b = a + b, b
-           rv.append(a)
-        return rv
+    def TuxedoCat(n):
+        its = [
+            "The       ",
+            " cats     ",
+            "   ass..  ",
+            "Seriously."
+        ]
+       print( tuxedo_cat() )  # See list below for more cats
 
-----
 
-.. image:: https://github.com/Duroktar/CatsAss/blob/master/images/CatsAss_colorz.png?raw=true
 
-Available colored cats -
-- `calico_cat`
-- `tuxedo_cat`
+.. image:: https://github.com/Duroktar/CatsAss/blob/master/images/CatsAss_colorz_dark.png?raw=true
+
+Available colored cats - `calico_cat`, `tuxedo_cat`
 
 - *Minimum terminal width of 80 characters recommended*
 - MIT_ licensed
@@ -97,6 +104,34 @@ you through the process.
 
 .. _pip: https://pip.pypa.io
 .. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
+
+
+Customization
+-------------
+
+The `catsass.PrettyKitty` class can be used directly to produce your own
+color combinations or custom titles. In the next release you will be able
+to add your own ascii-art and coloring schemes yourself, for now we can
+only modify arguments. Here's what's available..
+
+- **colors**: set True to activate colorz
+- **coat**: 'calico_colorz' or 'tuxedo_colors'
+- **logo_colorz**: 'logo_colorz' or 'dark_logo_colorz'
+- **title**: Can be set to any string. defaults to "Meowed with love by Duroktar, 2017"
+
+- **ctx**: when used with the_cats_ass this is filled in with the name of the calling function. But any hashable object works.
+- **data**: the actual data you wish to be pretty-printed.
+
+Example:
+
+.. code-block:: python
+
+    from catsass import PrettyKitty
+
+    data = {*zip('abcde', range(5))}
+
+    print(PrettyKitty("Magic!", data, colors=True, coat='tuxedo_colors',
+          logo_colorz='dark_logo_colorz', title="Dude, where's my car?")
 
 
 Bugs
@@ -134,25 +169,6 @@ Coding
 
 Duroktar - duroktar@gmail.com
 
-
-Customization
--------------
-
-The `catsass.PrettyKitty` class can be used directly to produce your own
-color combinations or custom titles. In the next release you will be able
-to add your own ascii-art and coloring schemes yourself, for now we can
-only modify arguments. Here's what's available..
-
-- colors: set True to activate colorz
-- coat: 'calico_colorz' or 'tuxedo_colors'
-- logo_colorz: 'logo_colorz' or 'dark_logo_colorz'
-- title: Can be set to any string. defaults to "Meowed with love by Duroktar, 2017"
-
-- ctx: when used with the_cats_ass this is filled in with the name of the
-calling function. But any hashable object works.
-- data: the actual data you wish to be pretty-printed.
-
-Example: `print(PrettyKitty(ctx, data, color=True, coat='tuxedo_colors', logo_colorz='dark_logo_colorz', title='Dude, where's my car?')
 
 Legal
 -----
