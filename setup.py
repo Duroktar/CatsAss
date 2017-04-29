@@ -36,7 +36,7 @@ setup(
     },
     description='Seriously the cats ass. Seriously.',
     long_description=long_description,
-    url='https://pypi.python.org/pypi/CatsAss',
+    url='https://github.com/Duroktar/CatsAss',
     author="Duroktar",
     author_email='duroktar@gmail.com',
     license="MIT",
