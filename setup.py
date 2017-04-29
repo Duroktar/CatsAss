@@ -9,7 +9,7 @@ SETUP_DIR = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(SETUP_DIR, 'README.rst')) as f:
     long_description = f.read()
 
-__version__ = '1.1.1'
+__version__ = '1.1.2'
 
 
 # From https://www.pydanny.com/python-dot-py-tricks.html
