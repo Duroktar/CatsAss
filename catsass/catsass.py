@@ -312,7 +312,7 @@ class PrettyKitty:
                     rv.append("".join(line))
             return rv
 
-        highlight = color_stuffs['highlight']
+        highlight = color_stuffs('highlight')
 
         # Customz
         cat_colorz = color_stuffs.get(self.coat) or {}
@@ -327,7 +327,8 @@ class PrettyKitty:
         cat = color_lines(cat, cat_colorz)
         logo = color_lines(logo, logo_colorz)
         title = color_lines(title, title_colors)
-        data = highlight(data, python3_lexer(stripnl=False), terminal_formatter(bg=self.term_bg))
+        if highlight is not None:
+            data = highlight(data, python3_lexer(stripnl=False), terminal_formatter(bg=self.term_bg))
         return cat, logo, title, data
 
 
