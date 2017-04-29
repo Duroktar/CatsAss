@@ -309,7 +309,7 @@ class PrettyKitty:
                     rv.append("".join(line))
             return rv
 
-        highlight = color_stuffs('highlight')
+        highlight = color_stuffs.get('highlight')
 
         # Customz
         cat_colorz = color_stuffs.get(self.coat) or {}
