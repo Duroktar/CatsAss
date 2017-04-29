@@ -36,10 +36,9 @@ def file_loader(directory, ftype):
             with open(os.path.join(dirname, current), 'r') as fs:
                 if collection:
                     data = yaml.safe_load(fs.read())
-                    group[collection.pop()] = data
+                    group[collection.pop()] = data if data is not None else {}
                 else:
-                    data = fs.read()
-                    group[element] = data
+                    group[element] = fs.read()
             if profile in files.keys():
                 files[profile].update(group)
             else:

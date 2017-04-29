@@ -25,3 +25,6 @@ wheels/
 .venv
 venv/
 /docs/catsass-1.0.0-docs.zip
+/.vscode/
+/.directory.desktop
+/proto/
