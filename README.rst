@@ -130,12 +130,12 @@ Example:
 
 .. code-block:: python
 
-    from catsass import PrettyKitty
+from catsass import PrettyKitty
 
-    data = {*zip('abcde', range(5))}
+data = {*zip('abcde', range(5))}
 
-    print(PrettyKitty("Magic!", data, colors=True, coat='tuxedo_colors',
-          logo_colorz='dark_logo_colorz', title="Dude, where's my car?")
+print(PrettyKitty("Magic!", data, colors=True, coat='tuxedo_colorz',
+      logo_colorz='dark_logo_colorz', title="Dude, where's my car?"))
 
 
 Bugs
