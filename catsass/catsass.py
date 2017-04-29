@@ -283,10 +283,7 @@ class PrettyKitty:
         return "\n".join((l.rstrip() for l in cat))
 
     def haz_colorz(self, cat, logo, title, data):
-        try:
-            from catsass.colorz import kitty_colorz
-        except ImportError:
-            return cat, logo, title, data
+        from catsass.colorz import kitty_colorz
 
         color_stuffs = kitty_colorz()
 
