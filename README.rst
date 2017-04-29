@@ -62,7 +62,7 @@ Colorz!
 
 *Requires: pygments and crayons packages*
 
-    pip install --user pygments crayons
+    pip install pygments crayons
 
 Just swap out the_cats_ass() with the color cat of your choice!
 
@@ -103,6 +103,16 @@ To install CatsAss, run this command in your terminal:
     $ pip install CatsAss
 
 
+To enable **Color** mode, install pygments_ and crayons_ as well:
+
+.. _pygments: http://pygments.org/
+.. _crayons: https://github.com/kennethreitz/crayons
+
+.. code-block:: console
+
+    $ pip install pygments crayons
+
+
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
 
@@ -130,12 +140,12 @@ Example:
 
 .. code-block:: python
 
-from catsass import PrettyKitty
+    from catsass import PrettyKitty
 
-data = {*zip('abcde', range(5))}
+    data = {*zip('abcde', range(5))}
 
-print(PrettyKitty("Magic!", data, colors=True, coat='tuxedo_colorz',
-      logo_colorz='dark_logo_colorz', title="Dude, where's my car?"))
+    print(PrettyKitty("Magic!", data, colors=True, coat='tuxedo_colorz',
+          logo_colorz='dark_logo_colorz', title="Dude, where's my car?"))
 
 
 Bugs
