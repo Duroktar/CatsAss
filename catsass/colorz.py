@@ -7,7 +7,7 @@ def kitty_colorz():
         from pygments.formatters import get_formatter_by_name
         from pygments.formatters.terminal import TerminalFormatter
     except ImportError:
-        return {}
+        return None
     else:
         color_map = dict(
             blk=crayons.black,

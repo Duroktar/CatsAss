@@ -287,6 +287,9 @@ class PrettyKitty:
 
         color_stuffs = kitty_colorz()
 
+        if color_stuffs is None:
+            return cat, logo, title, data
+
         def color_lines(lines, color_mapping, words=False):
             if any([len(k) > 1 for k in color_mapping.keys()]):
                 words = True
