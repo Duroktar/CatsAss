@@ -8,7 +8,7 @@ def CatsAss():
         "   ass..  ",
         "Seriously."
     ]
-    print((the_cats_ass()))
+    print(the_cats_ass())
 
 
 def CalicoCat():
@@ -18,7 +18,7 @@ def CalicoCat():
         "   ass..  ",
         "Seriously."
     ]
-    print((calico_kitty()))
+    print(calico_kitty())
 
 
 def TuxedoCat():
@@ -28,7 +28,7 @@ def TuxedoCat():
         "   ass..  ",
         "Seriously."
     ]
-    print((tuxedo_cat()))
+    print(tuxedo_cat())
 
 
 if __name__ == '__main__':
