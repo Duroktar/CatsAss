@@ -1,4 +1,4 @@
-from catsass import (the_cats_ass, calico_kitty, tuxedo_cat)
+from .catsass import (the_cats_ass, calico_kitty, tuxedo_cat)
 
 
 def CatsAss():
